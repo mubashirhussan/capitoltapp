@@ -1,0 +1,59 @@
+.trade-filters .rmsc {
+  border-radius: 3px;
+}
+.trade-filters .rmsc .dropdown-container {
+  background-color: #2e3238;
+  border: none;
+}
+.trade-filters .rmsc .dropdown-content {
+  background: #2e3238;
+}
+.trade-filters .rmsc .dropdown-content .panel-content {
+  background-color: #2e3238 !important;
+  border: none;
+}
+
+.trade-filters .rmsc .select-item.selected {
+  background-color: #2e3238 !important;
+}
+.trade-filters .rmsc .select-item:hover {
+  background-color: #2e3238 !important;
+}
+.trade-filters .rmsc .dropdown-container:focus-within {
+  box-shadow: none !important;
+  border: none;
+}
+[type="checkbox"],
+[type="radio"] {
+  background-color: #464953 !important;
+  border: none !important;
+  border-radius: 3px !important;
+}
+[type="checkbox"]:focus,
+[type="radio"]:focus {
+  box-shadow: none !important;
+}
+.trade-filters .rmsc .item-renderer {
+  align-items: center !important;
+  font-size: 13px;
+  font-weight: 500;
+  color: #8f97a3;
+}
+.trade-filters .selected .item-renderer span {
+  align-items: center !important;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+}
+.trade-filters .rmsc .search input:focus {
+  background-color: #2e3238 !important;
+  box-shadow: none !important;
+}
+.css-1i0e6f3-MuiModal-root-MuiPopover-root {
+  position: fixed;
+  z-index: 1300;
+  right: 0;
+  bottom: 0;
+  top: 10px !important;
+  left: -40px !important;
+}

@@ -1,0 +1,40 @@
+:root {
+  --scrollbar-bg: #545860;
+  --scrollbar-thumb: #52555b;
+  --scrollbar-thumb-hover: #5d6168;
+  --scrollbar-thumb-active: #5d6168;
+  --scrollbar-track: #292c32;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 11px;
+}
+
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border: solid 2px var(--scrollbar-track);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-thumb-active);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border: none;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
