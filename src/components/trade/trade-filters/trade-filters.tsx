@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useState } from "react";
@@ -16,7 +18,8 @@ import {
   TRANSACTION_LABELS,
   TRANSACTION_TYPE,
 } from "../../../../utils/constant";
-import CustomDataTable from "@/components/CustomDataTable";
+// import CustomDataTable from "@/components/CustomDataTable";
+import CustomReactDataTable from "@/components/CustomReactDataTable";
 
 // Define a type for the filter options
 interface FilterOption {
@@ -159,17 +162,76 @@ const CustomDropdown = () => {
       [label]: selectedOptions,
     }));
   };
-  const columns = [
-    { name: "name", label: "Name" },
-    { name: "age", label: "Age" },
+  const [visibleColumns, setVisibleColumns] = useState<Record<string, boolean>>(
+    {
+      name: true,
+      role: true,
+      age: true,
+      action: true,
+    }
+  );
+  // const columns = [
+  //   { name: "name", label: "Name" },
+  //   { name: "age", label: "Age" },
+  // ];
+
+  // const data = [
+  //   { name: "John", age: 25 },
+  //   { name: "Jane", age: 30 },
+  //   { name: "Doe", age: 22 },
+  // ];
+  const [selectedAction, setSelectedAction] = useState("");
+  // Initial columns
+  const initialColumns = [
+    {
+      name: "Name",
+      selector: (row: { name: any }) => row.name,
+      id: "name",
+      sortable: true,
+    },
+    { name: "Role", selector: (row: { role: any }) => row.role, id: "role" },
+    { name: "Age", selector: (row: { age: any }) => row.age, id: "age" },
+    {
+      name: (
+        <div>
+          <details className="dropdown">
+            <summary className="btn m-1">open or close</summary>
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+              {/* Checkbox for each column */}
+              {["name", "role", "age"].map((columnId) => (
+                <li key={columnId}>
+                  <label className="flex items-center space-x-2">
+                    <input type="checkbox" className="checkbox" />
+                    <span>{columnId}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </details>
+        </div>
+      ),
+      id: "action",
+      cell: (row: any) => <div>test</div>,
+    },
   ];
 
+  // Sample data
   const data = [
-    { name: "John", age: 25 },
-    { name: "Jane", age: 30 },
-    { name: "Doe", age: 22 },
+    { id: 1, name: "John Doe", role: "Admin", age: 28 },
+    { id: 2, name: "Jane Smith", role: "User", age: 34 },
+    { id: 3, name: "Alice Johnson", role: "User", age: 29 },
   ];
 
+  // Function to toggle column visibility
+  const handleColumnToggle = (columnId: string) => {
+    setVisibleColumns((prevState) => ({
+      ...prevState,
+      [columnId]: !prevState[columnId],
+    }));
+  };
+
+  // Filter columns based on visibility state
+  const columns = initialColumns.filter((column) => visibleColumns[column.id]);
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-4 ">
@@ -201,7 +263,23 @@ const CustomDropdown = () => {
         {JSON.stringify(selectedFilters, null, 2)}
       </pre>
       <div className="my-4">
-        <CustomDataTable title={"datatable"} columns={columns} data={data} />
+        {/* <div style={{ marginBottom: "20px" }}>
+          <h4>Select Columns to View</h4>
+          <div>
+            {initialColumns.map((column) => (
+              <label key={column.id} style={{ marginRight: "10px" }}>
+                <input
+                  type="checkbox"
+                  checked={visibleColumns[column.id]} // Use the column's id to check visibility
+                  onChange={() => handleColumnToggle(column.id)} // Toggle visibility
+                />
+                {column.name}
+              </label>
+            ))}
+          </div>
+        </div> */}
+        {/* <CustomDataTable title={"datatable"} columns={columns} data={data} /> */}
+        <CustomReactDataTable columns={columns} data={data} />
       </div>
     </div>
   );

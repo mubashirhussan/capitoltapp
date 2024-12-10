@@ -1,21 +1,16 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google';
+import { Inter } from "next/font/google";
 import "./globals.css";
-import '../styles/_.css';
+import "../styles/_.css";
 import ThemeProvider from "@/providers/theme-provider";
 import Header from "@/components/header";
 
-
-
-
-
-
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -29,23 +24,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${inter.variable}`} suppressHydrationWarning={true}>
-      
-      <body
-       
-      >
-         <ThemeProvider enableSystem={true}  attribute="class"
-          defaultTheme="system" >
-             <div className={``}>
-            <Header   />
+    <html
+      lang="en"
+      className={`dark ${inter.variable}`}
+      suppressHydrationWarning={true}
+    >
+      <body>
+        <ThemeProvider
+          enableSystem={true}
+          attribute="class"
+          defaultTheme="system"
+        >
+          <div className={``}>
+            <Header />
             <main className="container">{children}</main>
-         
           </div>
-         </ThemeProvider>
-      
-         {/* <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.0/dist/flowbite.min.js" ></script> */}
-        
-       
+        </ThemeProvider>
+
+        {/* <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.0/dist/flowbite.min.js" ></script> */}
       </body>
     </html>
   );
