@@ -143,7 +143,7 @@ const filters: Filter[] = [
   },
 ];
 
-const CustomDropdown = () => {
+const CustomDropdown = (props: any) => {
   // State to manage selected options for each filter
   const [selectedFilters, setSelectedFilters] = useState(
     filters.reduce((acc, filter) => {
@@ -151,7 +151,6 @@ const CustomDropdown = () => {
       return acc;
     }, {} as Record<string, FilterOption[]>)
   );
-
   // Handle filter selection changes
   const handleFilterChange = (
     label: string,
@@ -196,7 +195,7 @@ const CustomDropdown = () => {
         <div>
           <details className="dropdown">
             <summary className="btn m-1">open or close</summary>
-            <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-50 w-52 p-2 shadow">
               {/* Checkbox for each column */}
               {["name", "role", "age"].map((columnId) => (
                 <li key={columnId}>

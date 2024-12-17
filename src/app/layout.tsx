@@ -5,7 +5,28 @@ import "./globals.css";
 import "../styles/_.css";
 import ThemeProvider from "@/providers/theme-provider";
 import Header from "@/components/header";
+import { storyblokInit, apiPlugin } from "@storyblok/react";
 
+import Grid from "../components/Grid";
+import Page from "../components/page";
+import Teaser from "../components/Teaser";
+import Feature from "../components/Feature";
+
+const components = {
+  grid: Grid,
+  teaser: Teaser,
+  page: Page,
+  feature: Feature,
+};
+
+storyblokInit({
+  accessToken: "A8FFXsxLGBOitHoSLEkoSgtt",
+  apiOptions: {
+    region: "eu",
+  },
+  use: [apiPlugin],
+  components,
+});
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
   subsets: ["latin"],
