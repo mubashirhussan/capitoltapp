@@ -8,9 +8,10 @@ import Header from "@/components/header";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 
 import Grid from "../components/Grid";
-import Page from "../components/page";
+// import Page from "../components/page";
 import Teaser from "../components/Teaser";
 import Feature from "../components/Feature";
+import Page from "@/components/Page";
 
 const components = {
   grid: Grid,
