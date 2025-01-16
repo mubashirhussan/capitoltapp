@@ -11,7 +11,7 @@ export default async function StoryBlockPage() {
   return (
     <>
       <header>
-        <div>test for prod</div>
+        <div>test for vercel</div>
         <h1>{data?.story?.name || "My StoryBlock Page"}</h1>
       </header>
       <StoryblokComponent blok={data.story.content} />
