@@ -7,7 +7,7 @@ export default async function StoryBlockPage() {
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
     version: "draft",
   });
-  console.log("data", data);
+  console.log("data11", data);
   return (
     <>
       <header>
